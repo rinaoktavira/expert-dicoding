@@ -38,6 +38,7 @@ import 'package:core/presentation/bloc/tv_bloc/top_rated_tv/top_tv_bloc.dart';
 import 'package:core/presentation/bloc/tv_bloc/tv_detail/tv_detail_bloc.dart';
 import 'package:core/presentation/bloc/tv_bloc/tv_reccomendation/tv_recom_bloc.dart';
 import 'package:core/presentation/bloc/tv_bloc/watchlist_tv/watchlist_tv_bloc.dart';
+import 'package:core/utils/ssl_pinning.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 import 'package:search/domain/usecases/search_tv.dart';
@@ -136,5 +137,5 @@ Future<void> get init async {
       () => DatabaseHelperTelevision());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => SslPinning.client);
 }
